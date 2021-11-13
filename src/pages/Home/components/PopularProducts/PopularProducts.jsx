@@ -34,7 +34,7 @@ const PopularProducts = () => {
   };
 
   const prevSlice = () => {
-    setSliceStart(prevSliceStart => (prevSliceStart - sliceEnd < 0 ? 12 - sliceEnd : prevSliceStart - 4));
+    setSliceStart(prevSliceStart => (prevSliceStart - sliceEnd < 0 ? 12 - sliceEnd : prevSliceStart - sliceEnd));
     setSlicedProducts(products.slice(sliceStart, sliceStart + sliceEnd));
   };
 

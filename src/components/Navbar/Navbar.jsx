@@ -1,8 +1,13 @@
+import close from '../../assets/icon-close.svg';
+import { navbarOpen } from '../../utils/Navbar.utils';
 import './Navbar.css';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
+      <div className="navbar-close">
+        <img src={close} alt="Close" className="navbar-close-icon mobile" onClick={navbarOpen} />
+      </div>
       <ul className="navbar-list">
         <li className="navbar-item">
           <p className="navbar-link">Hombre</p>

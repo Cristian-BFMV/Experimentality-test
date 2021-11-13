@@ -55,3 +55,9 @@
   border: 1px solid black;
   padding: 0.5rem 0;
 }
+
+@media (max-width: 599px) {
+  .product-card {
+    flex: 0 0 80%;
+  }
+}

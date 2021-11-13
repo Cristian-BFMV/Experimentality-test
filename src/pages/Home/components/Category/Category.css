@@ -2,6 +2,7 @@
   margin: 2rem 5%;
   display: flex;
   justify-content: space-between;
+  flex-flow: row wrap;
 }
 
 .category-card {
@@ -23,4 +24,11 @@
   bottom: 1rem;
   text-align: center;
   color: #fff;
+}
+
+@media (max-width: 599px) {
+  .category-card {
+    flex: 0 0 100%;
+    margin: 0.5rem 0;
+  }
 }

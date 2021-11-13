@@ -58,3 +58,38 @@
 .header-icon {
   max-width: 2.3rem;
 }
+
+@media (max-width: 599px) {
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'headerbrand'
+      'searchform';
+  }
+
+  .header-brand {
+    grid-area: headerbrand;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .header-actions {
+    grid-area: searchform;
+  }
+
+  .header-search-form {
+    flex: 0 0 100%;
+  }
+
+  .header-brand-logo {
+    width: 100%;
+    max-width: 10rem;
+  }
+
+  .menu {
+    cursor: pointer;
+  }
+}

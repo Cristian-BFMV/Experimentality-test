@@ -50,3 +50,52 @@
 .footer-copyright-description {
   margin: 0;
 }
+
+@media (max-width: 599px) {
+  .footer-information {
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .footer-mobile-section {
+    width: 80%;
+  }
+
+  .footer-title-container {
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-description-container {
+    overflow-y: hidden;
+    height: 0;
+  }
+
+  .footer-description-container.show-more {
+    height: fit-content;
+  }
+
+  .footer-section-social-media {
+    width: 80%;
+  }
+
+  .footer-icons {
+    justify-content: flex-start;
+  }
+
+  .footer-image {
+    margin-right: 0.5rem;
+  }
+
+  .footer-copyright {
+    border-top: none;
+  }
+
+  .footer-copyright-description {
+    font-size: 0.8rem;
+  }
+}
