@@ -1,0 +1,27 @@
+.navbar {
+  background-color: #000;
+  color: rgb(238, 238, 238);
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  flex: 0 0 40%;
+  justify-content: space-between;
+  margin: 0;
+}
+
+/* .navbar-list:not(:last-child) {
+  border-right: 1px solid rgb(238, 238, 238);
+}
+*/
+/* .navbar-item {
+  padding: 0 1rem;
+  border-right: 1px solid rgb(238, 238, 238);
+} */
+
+.navbar-link {
+  font-size: 1.2rem;
+}

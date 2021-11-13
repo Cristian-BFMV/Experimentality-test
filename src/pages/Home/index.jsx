@@ -1,13 +1,13 @@
-import Header from './components/Header/Header';
+import Category from './components/Category/Category';
 import Landing from './components/Landing/Landing';
-import Navbar from './components/Navbar/Navbar';
+import PopularProducts from './components/PopularProducts/PopularProducts';
 
 const HomePage = () => {
   return (
     <>
-      <Header />
-      <Navbar />
       <Landing />
+      <Category />
+      <PopularProducts />
     </>
   );
 };
