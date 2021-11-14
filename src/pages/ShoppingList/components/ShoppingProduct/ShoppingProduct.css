@@ -1,0 +1,22 @@
+.shopping-product-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  padding: 1rem 0;
+}
+
+.shopping-product-title,
+.shopping-product-price {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.shopping-product-price {
+  color: #5b17aa;
+  font-weight: bold;
+}
+
+.shopping-product-icon {
+  cursor: pointer;
+}

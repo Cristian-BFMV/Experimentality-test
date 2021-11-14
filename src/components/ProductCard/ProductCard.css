@@ -55,6 +55,7 @@
   color: white;
   border: 1px solid black;
   padding: 0.5rem 0;
+  cursor: pointer;
 }
 
 @media (max-width: 599px) {

@@ -1,8 +1,5 @@
+import { formatPrice } from '../../utils/Product.utils';
 import './ProductCard.css';
-
-const formatPrice = price => {
-  return price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-};
 
 const ProductCard = props => {
   return (
@@ -16,7 +13,12 @@ const ProductCard = props => {
           <p className={`product-card-price ${props.sale_price && `product-sale`}`}>${formatPrice(props.price)}</p>
           <p className="product-card-sale-price">{props.sale_price && `$${formatPrice(props.sale_price)}`}</p>
         </div>
-        <button className="product-card-button">Agregar al carrito</button>
+        <button
+          className="product-card-button"
+          onClick={() => props.addProduct({ id: props.id, title: props.title, price: props.price })}
+        >
+          Agregar al carrito
+        </button>
       </div>
     </article>
   );

@@ -59,6 +59,25 @@
   max-width: 2.3rem;
 }
 
+.shopping-cart-container {
+  position: relative;
+}
+
+.shopping-cart-tooltip {
+  position: absolute;
+  top: -25px;
+  right: -10px;
+  z-index: 1;
+  background-color: #5b17aa;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 @media (max-width: 599px) {
   .header-container {
     display: grid;
