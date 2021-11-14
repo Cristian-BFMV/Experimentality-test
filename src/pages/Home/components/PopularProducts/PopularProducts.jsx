@@ -1,8 +1,12 @@
 import React from 'react';
-import ProductCard from '../../../../components/ProductCard/ProductCard';
+import Arrow from '../Arrow/Arrow';
+import Error from '../../../../components/Error/Error';
+import ProductsList from '../../../../components/ProductsList/ProductsList';
+import Spinner from '../../../../components/Spinner/Spinner';
 import { getPopularProductsService } from '../../../../services/Products.service';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
+import { initialState, productsReducer } from '../../../../reducers/Products.reducer';
 import './PopularProducts.css';
 
 let sliceEnd = window.innerWidth > 1200 ? 4 : 1;
@@ -14,18 +18,28 @@ const reportWindowSize = () => {
 window.onresize = reportWindowSize;
 
 const PopularProducts = () => {
-  const [products, setProducts] = React.useState([]);
+  const [{ products, loading, error }, dispatch] = React.useReducer(productsReducer, initialState);
   const [slicedProducts, setSlicedProducts] = React.useState([]);
   const [sliceStart, setSliceStart] = React.useState(0);
 
   React.useEffect(() => {
+    let isMounted = true;
+
     const getPopularProducts = async () => {
-      const products = await getPopularProductsService();
-      setProducts(products);
-      setSlicedProducts(products.slice(0, sliceEnd));
+      try {
+        const products = await getPopularProductsService();
+        setSlicedProducts(products.slice(0, sliceEnd));
+        if (isMounted) dispatch({ type: 'FETCH_SUCCESS', payload: { products } });
+      } catch (error) {
+        if (isMounted) dispatch({ type: 'FETCH_ERROR' });
+      }
     };
 
     getPopularProducts();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const nextSlice = () => {
@@ -43,19 +57,21 @@ const PopularProducts = () => {
       <header className="popular-products-header">
         <h1 className="popular-products-title">PRODUCTOS MÁS BUSCADOS</h1>
       </header>
-      <div className="popular-products-body">
-        <div className="arrow-left">
-          <img src={arrowleft} alt="Arrow left" className="arrow-image" onClick={prevSlice} />
-        </div>
-        <div className="popular-products-list">
-          {slicedProducts.map(product => {
-            return <ProductCard key={product.id} {...product} />;
-          })}
-        </div>
-        <div className="arrow-right">
-          <img src={arrowright} alt="Arrow right" className="arrow-image" onClick={nextSlice} />
-        </div>
-      </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          {error ? (
+            <Error message="No ha sido posible cargar los productos" />
+          ) : (
+            <div className="popular-products-body">
+              <Arrow className="arrow-left" image={arrowleft} onClick={prevSlice} />
+              <ProductsList products={slicedProducts} />
+              <Arrow className="arrow-right" image={arrowright} onClick={nextSlice} />
+            </div>
+          )}
+        </>
+      )}
     </section>
   );
 };

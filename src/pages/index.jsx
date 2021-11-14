@@ -1,17 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './Home';
+import ProductsPage from './SearchProducts';
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
 
-const PageRouter = () => {
+const Page = () => {
   return (
     <>
-      <Header />
-      <Navbar />
-      <HomePage />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 };
 
-export default PageRouter;
+export default Page;

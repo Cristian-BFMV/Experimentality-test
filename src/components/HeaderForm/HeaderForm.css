@@ -1,0 +1,31 @@
+.header-search-form {
+  flex: 0 0 60%;
+  display: flex;
+}
+
+.search-icon {
+  width: 100%;
+  max-width: 2.5rem;
+  padding: 0.5rem;
+  background-color: #dedede;
+}
+
+.header-search-form > input {
+  width: 100%;
+  padding: 0.6rem 0.5rem;
+  color: #6b6b6b;
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: #eee;
+  border: none;
+}
+
+.header-search-form > input:focus {
+  outline: none;
+}
+
+@media (max-width: 599px) {
+  .header-search-form {
+    flex: 0 0 100%;
+  }
+}

@@ -1,0 +1,17 @@
+.products-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.products-list-container {
+  width: 80%;
+  margin: 2rem 0;
+}
+
+@media (max-width: 599px) {
+  .products-list-container {
+    width: 90%;
+    margin: 2rem 0;
+  }
+}

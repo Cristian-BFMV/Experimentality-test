@@ -1,6 +1,7 @@
 .product-card {
   flex: 0 0 23%;
   border: 1px solid #e6e6e6;
+  margin: 1rem 0;
 }
 
 .product-card-header {

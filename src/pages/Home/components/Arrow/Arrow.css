@@ -1,0 +1,27 @@
+.arrow-left,
+.arrow-right {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-left {
+  grid-area: leftarrow;
+  justify-content: flex-start;
+}
+
+.arrow-right {
+  grid-area: rightarrow;
+  justify-content: flex-end;
+}
+
+.arrow-image {
+  width: 100%;
+  max-width: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 599px) {
+  .arrow-image {
+    max-width: 1.5rem;
+  }
+}
