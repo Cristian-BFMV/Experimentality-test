@@ -9,18 +9,29 @@ import arrowright from '../../../../assets/arrow-right.svg';
 import { initialState, productsReducer } from '../../../../reducers/Products.reducer';
 import './PopularProducts.css';
 
-let sliceEnd = window.innerWidth > 1200 ? 4 : 1;
-
-const reportWindowSize = () => {
-  sliceEnd = window.innerWidth > 1200 ? 4 : 1;
+const calculateSlice = () => {
+  const slice =
+    window.innerWidth > 1200
+      ? 4
+      : window.innerWidth < 1200 && window.innerWidth > 900
+      ? 3
+      : window.innerWidth > 599 && window.innerWidth < 900
+      ? 2
+      : 1;
+  return slice;
 };
-
-window.onresize = reportWindowSize;
 
 const PopularProducts = () => {
   const [{ products, loading, error }, dispatch] = React.useReducer(productsReducer, initialState);
   const [slicedProducts, setSlicedProducts] = React.useState([]);
   const [sliceStart, setSliceStart] = React.useState(0);
+  const [slice, setSlice] = React.useState(calculateSlice());
+
+  const reportWindowSize = () => {
+    setSlice(calculateSlice());
+  };
+
+  window.onresize = reportWindowSize;
 
   React.useEffect(() => {
     let isMounted = true;
@@ -28,7 +39,7 @@ const PopularProducts = () => {
     const getPopularProducts = async () => {
       try {
         const products = await getPopularProductsService();
-        setSlicedProducts(products.slice(0, sliceEnd));
+        setSlicedProducts(products.slice(0, slice));
         if (isMounted) dispatch({ type: 'FETCH_SUCCESS', payload: { products } });
       } catch (error) {
         if (isMounted) dispatch({ type: 'FETCH_ERROR' });
@@ -40,16 +51,16 @@ const PopularProducts = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [slice]);
 
   const nextSlice = () => {
-    setSliceStart(prevSliceStart => (prevSliceStart + sliceEnd) % 12);
-    setSlicedProducts(products.slice(sliceStart, sliceStart + sliceEnd));
+    setSliceStart(prevSliceStart => (prevSliceStart + slice) % 12);
+    setSlicedProducts(products.slice(sliceStart, sliceStart + slice));
   };
 
   const prevSlice = () => {
-    setSliceStart(prevSliceStart => (prevSliceStart - sliceEnd < 0 ? 12 - sliceEnd : prevSliceStart - sliceEnd));
-    setSlicedProducts(products.slice(sliceStart, sliceStart + sliceEnd));
+    setSliceStart(prevSliceStart => (prevSliceStart - slice < 0 ? 12 - slice : prevSliceStart - slice));
+    setSlicedProducts(products.slice(sliceStart, sliceStart + slice));
   };
 
   return (

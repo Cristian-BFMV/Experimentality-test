@@ -42,3 +42,11 @@ code {
     overflow-y: hidden;
   }
 }
+
+/*
+  CSS breakpoints 
+  max-widht: 599px for mobile
+  min-width: 600px for table portrait mode
+  min-width: 900px for table landscape mode
+  min-width: 1200px for desktop
+*/

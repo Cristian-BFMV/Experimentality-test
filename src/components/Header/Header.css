@@ -78,6 +78,27 @@
   color: white;
 }
 
+@media (min-width: 600px) and (max-width: 899px) {
+  .header-brand {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+
+  .header-brand-logo {
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  .header-actions {
+    flex: 0 0 100%;
+  }
+
+  .header-search-form {
+    flex: 0 0 40%;
+    display: flex;
+  }
+}
+
 @media (max-width: 599px) {
   .header-container {
     display: grid;
@@ -105,6 +126,7 @@
 
   .header-brand-logo {
     width: 100%;
+    width: 10rem;
     max-width: 10rem;
   }
 

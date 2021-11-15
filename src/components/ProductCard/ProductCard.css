@@ -58,6 +58,18 @@
   cursor: pointer;
 }
 
+@media (min-width: 900px) and (max-width: 1199px) {
+  .product-card {
+    flex: 0 0 30%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .product-card {
+    flex: 0 0 45%;
+  }
+}
+
 @media (max-width: 599px) {
   .product-card {
     flex: 0 0 80%;
