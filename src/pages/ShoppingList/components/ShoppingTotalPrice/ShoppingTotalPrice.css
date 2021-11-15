@@ -1,0 +1,15 @@
+.shopping-list-price-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.shopping-list-price-title,
+.shopping-list-price-price {
+  margin: 0;
+}
+
+.shopping-list-price-price {
+  color: #5b17aa;
+  font-weight: bold;
+}

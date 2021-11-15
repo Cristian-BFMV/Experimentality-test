@@ -1,5 +1,5 @@
 import ShoppingProduct from '../ShoppingProduct/ShoppingProduct';
-import { calculateTotalPrice, formatPrice } from '../../../../utils/Product.utils';
+import ShoppingTotalPrice from '../ShoppingTotalPrice/ShoppingTotalPrice';
 import './ShoppingList.css';
 
 const ShoppingList = ({ products, removeProductFromShoppingList }) => {
@@ -11,10 +11,7 @@ const ShoppingList = ({ products, removeProductFromShoppingList }) => {
           <ShoppingProduct key={product.id} {...product} removeProductFromShoppingList={removeProductFromShoppingList} />
         );
       })}
-      <div className="shopping-list-price-container">
-        <h4 className="shopping-list-price-title">Precio Total</h4>
-        <p className="shopping-list-price-price">${formatPrice(calculateTotalPrice(products))}</p>
-      </div>
+      <ShoppingTotalPrice products={products} />
     </div>
   );
 };

@@ -2,22 +2,6 @@
   margin: 1rem 20%;
 }
 
-.shopping-list-price-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
-
-.shopping-list-price-title,
-.shopping-list-price-price {
-  margin: 0;
-}
-
-.shopping-list-price-price {
-  color: #5b17aa;
-  font-weight: bold;
-}
-
 @media (max-width: 599px) {
   .shopping-list-container {
     margin: 1rem 10%;
